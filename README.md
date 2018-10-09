@@ -49,3 +49,23 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/LXTechnic/vagbook-cli/ma
 ```
 
 You should relogin shell to apply env vars.
+
+## Usage
+
+### Update vagbook
+
+```bash
+vb-up
+```
+
+### See vagbook command list
+
+```bash
+vbc
+```
+
+### Play vagbook
+
+```bash
+vbc <command>
+```
