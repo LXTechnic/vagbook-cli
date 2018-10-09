@@ -31,9 +31,19 @@ sudo -i -u vagbook-test git clone git@your.git.repos/vagbook.git
 
 ### Enable sudoers permission
 
+You need choose a master user.
+
 ```bash
 export CUSTOM_USER=user_name
-echo "${CUSTOM_USER} ALL=(vagbook-dev) NOPASSWD:ALL" |sudo tee /etc/sudoers.d/vagbook-${CUSTOM_USER}
+echo "${CUSTOM_USER} ALL=(vagbook-test) NOPASSWD:ALL" |sudo tee /etc/sudoers.d/vagbook-${CUSTOM_USER}
 ```
 
 ## Install
+
+Example master user is vagbook-test.
+
+via curl
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/LXTechnic/vagbook-cli/master/setup.sh) vagbook-test"
+```
