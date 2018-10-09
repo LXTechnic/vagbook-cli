@@ -1,6 +1,9 @@
 #!/bin/bash
 
 if [[ !$1 ]];then
+    echo "Usage: vbc <env> <command>"
+    echo "Command list:"
+
     # TODO: 这里猜了一下用户的目录
     master_home=/home/$VAGBOOK_MASTER
 
@@ -24,6 +27,24 @@ if [[ !$1 ]];then
             echo @${tmp##*/}
         done
     fi
+
+    exit
 fi
 
-#ansible-playbook -i
+if [[ !$2 ]];then
+    echo "Usage: vbc <env> <command>"
+    exit
+fi
+
+if [[ ${2:0:1} == "@" ]];then
+    book=./vagbook/${VAGBOOK_MASTER}/${2:1}.yml
+else
+    book=./vagbook/${2}.yml
+fi
+
+hosts=hosts.${1}
+
+# debug
+echo "ansible-playbook -i $hosts $book"
+
+ansible-playbook -i $hosts $book

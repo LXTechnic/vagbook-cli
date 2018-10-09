@@ -67,5 +67,5 @@ vbc
 ### Play vagbook
 
 ```bash
-vbc <command>
+vbc <env> <command>
 ```
