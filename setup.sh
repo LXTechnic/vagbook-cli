@@ -10,7 +10,8 @@ if [[ ! $master ]] || [[ $master == "bash" ]] || [[ $master == "./setup.sh" ]] |
     exit
 fi
 
+rm -rf ~/.vagbook-cli
 git clone git@github.com:LXTechnic/vagbook-cli.git ~/.vagbook-cli
 chmod 755 ~/.vagbook-cli/bin/*
-sed -i "$a source $HOME/.vagbook-cli/load.sh" ~/.bashrc
-sed -i "$a export VAGBOOK_MASTER=$1" ~/.bashrc
+echo "source $HOME/.vagbook-cli/load.sh" |sudo tee -a $HOME/.bashrc
+echo "export VAGBOOK_MASTER=$master" |sudo tee -a $HOME/.bashrc
