@@ -10,13 +10,19 @@ if [[ !$1 ]];then
         echo ""
     else
         ymllist=($(find $master_home/vagbook/ -maxdepth 1 -name "*.yml"))
-        for i in "${ymllist[@]}"; do echo ${i%%.yml*}; done
+        for i in "${ymllist[@]}"; do
+            tmp=${i%%.yml*}
+            echo ${tmp##*/}
+        done
     fi
 
     # 私有目录处理
     if [[ -d $master_home/vagbook/${VAGBOOK_MASTER} ]];then
         ymllist=($(find $master_home/vagbook/${VAGBOOK_MASTER}/ -maxdepth 1 -name "*.yml"))
-        for i in "${ymllist[@]}"; do echo @${i%%.yml*}; done
+        for i in "${ymllist[@]}"; do
+            tmp=${i%%.yml*}
+            echo ${tmp##*/}
+        done
     fi
 fi
 
