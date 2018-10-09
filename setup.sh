@@ -15,3 +15,4 @@ git clone git@github.com:LXTechnic/vagbook-cli.git ~/.vagbook-cli
 chmod 755 ~/.vagbook-cli/bin/*
 echo "source $HOME/.vagbook-cli/load.sh" |sudo tee -a $HOME/.bashrc
 echo "export VAGBOOK_MASTER=$master" |sudo tee -a $HOME/.bashrc
+source $HOME/.vagbook-cli/load.sh
