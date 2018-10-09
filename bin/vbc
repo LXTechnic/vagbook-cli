@@ -1,2 +1,22 @@
 #!/bin/bash
-echo "haha $VAGBOOK_MASTER"
+
+if [[ !$1 ]];then
+    # TODO: 这里猜了一下用户的目录
+    master_home=/home/$VAGBOOK_MASTER
+
+    # 公共目录处理
+    if [[ -f $master_home/vagbook/${VAGBOOK_MASTER}/whitelist.txt ]];then
+        cat $master_home/vagbook/${VAGBOOK_MASTER}/whitelist.txt
+    else
+        ymllist=($(find $master_home/vagbook/ -maxdepth 1 -name "*.yml"))
+        for i in "${ymllist[@]}"; do echo ${i%%.yml*}; done
+    fi
+
+    # 私有目录处理
+    if [[ -d $master_home/vagbook/${VAGBOOK_MASTER} ]];then
+        ymllist=($(find $master_home/vagbook/${VAGBOOK_MASTER}/ -maxdepth 1 -name "*.yml"))
+        for i in "${ymllist[@]}"; do echo @${i%%.yml*}; done
+    fi
+fi
+
+#ansible-playbook -i
