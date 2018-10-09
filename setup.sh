@@ -13,7 +13,7 @@ fi
 rm -rf ~/.vagbook-cli
 git clone https://github.com/LXTechnic/vagbook-cli.git ~/.vagbook-cli
 chmod 755 ~/.vagbook-cli/bin/*
-if [[ -d $HOME/.zshrc ]];then
+if [[ -f $HOME/.zshrc ]];then
     echo "source $HOME/.vagbook-cli/load.sh" |tee -a $HOME/.zshrc
     echo "export VAGBOOK_MASTER=$master" |tee -a $HOME/.zshrc
 else
