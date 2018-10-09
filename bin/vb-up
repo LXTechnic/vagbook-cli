@@ -1,5 +1,8 @@
 #!/bin/bash
+
 git -C $HOME/.vagbook-cli fetch --all
 git -C $HOME/.vagbook-cli reset --hard
+chmod 755 ~/.vagbook-cli/bin/*
+
 sudo -i -u $VAGBOOK_MASTER git -C ~/vagbook fetch --all
 sudo -i -u $VAGBOOK_MASTER git -C ~/vagbook reset --hard
