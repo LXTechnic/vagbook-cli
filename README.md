@@ -45,5 +45,5 @@ Example master user is vagbook-test.
 via curl
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/LXTechnic/vagbook-cli/master/setup.sh) vagbook-test"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/LXTechnic/vagbook-cli/master/setup.sh) vagbook-test"
 ```

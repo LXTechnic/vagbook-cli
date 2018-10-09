@@ -1,5 +1,12 @@
 #!/bin/bash
-if [[ ! $1 ]];then
+master=0
+if [[ ! $0 ]];then
+    master=$0
+elif [[ ! $1 ]];then
+    master=$1
+fi
+
+if [[ $master -eq 0 ]];then
     echo "Usage: ./setup.sh <master_user>"
     exit
 fi
