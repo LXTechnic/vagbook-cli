@@ -47,3 +47,5 @@ via curl
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/LXTechnic/vagbook-cli/master/setup.sh)" vagbook-test
 ```
+
+You should relogin shell to apply env vars.
