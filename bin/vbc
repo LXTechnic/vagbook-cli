@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ !$1 ]];then
+if [[ ! $1 ]];then
     echo "Usage: vbc <env> <command>"
     echo "Command list:"
 
@@ -31,7 +31,7 @@ if [[ !$1 ]];then
     exit
 fi
 
-if [[ !$2 ]];then
+if [[ ! $2 ]];then
     echo "Usage: vbc <env> <command>"
     exit
 fi
