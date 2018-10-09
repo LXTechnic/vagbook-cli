@@ -1,8 +1,8 @@
 #!/bin/bash
 master=0
-if [[ ! $0 ]];then
+if [[ $0 ]];then
     master=$0
-elif [[ ! $1 ]];then
+elif [[ $1 ]];then
     master=$1
 fi
 
