@@ -47,4 +47,4 @@ hosts=hosts.${1}
 # debug
 echo "ansible-playbook -i $hosts $book"
 
-ansible-playbook -i $hosts $book
+sudo -i -u ${VAGBOOK_MASTER} ansible-playbook -i $hosts $book
