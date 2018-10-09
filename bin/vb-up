@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $VAGBOOK_MASTER
+sudo -i -u $VAGBOOK_MASTER git pull -C ~/vagbook-cli
