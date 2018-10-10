@@ -58,10 +58,16 @@ You should relogin shell to apply env vars.
 vb-up
 ```
 
-### See vagbook command list
+### List vagbook commands
 
 ```bash
 vbc
+```
+
+### Check playbook
+
+```bash
+vbc-check <env> <command>
 ```
 
 ### Play vagbook
