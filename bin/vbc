@@ -15,7 +15,7 @@ if [[ ! $1 ]];then
         ymllist=($(find $master_home/vagbook/ -maxdepth 1 -name "*.yml"))
         for i in "${ymllist[@]}"; do
             tmp=${i%%.yml*}
-            echo ${tmp##*/}
+            echo - ${tmp##*/}
         done
     fi
 
@@ -24,7 +24,7 @@ if [[ ! $1 ]];then
         ymllist=($(find $master_home/vagbook/${VAGBOOK_MASTER}/ -maxdepth 1 -name "*.yml"))
         for i in "${ymllist[@]}"; do
             tmp=${i%%.yml*}
-            echo @${tmp##*/}
+            echo - @${tmp##*/}
         done
     fi
 
