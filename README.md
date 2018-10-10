@@ -67,7 +67,7 @@ vbc
 ### Check playbook
 
 ```bash
-vbc-check <env> <command>
+vbc <env> <command> --check
 ```
 
 ### Play vagbook
