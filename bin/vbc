@@ -2,30 +2,46 @@
 
 if [[ ! $1 ]];then
     echo "Usage: vbc <env> <command>"
-    echo "Command list:"
+    echo "Commands list:"
 
     # TODO: 这里猜了一下用户的目录
     master_home=/home/$VAGBOOK_MASTER
 
     # 公共目录处理
-    if [[ -f $master_home/vagbook/${VAGBOOK_MASTER}/whitelist.txt ]];then
-        cat $master_home/vagbook/${VAGBOOK_MASTER}/whitelist.txt
+    echo ""
+    echo "# Common commands"
+    echo ""
+    if [[ -f $master_home/vagbook/masters/${VAGBOOK_MASTER}/common_spec.md ]];then
+        cat $master_home/vagbook/masters/${VAGBOOK_MASTER}/common_spec.md
         echo ""
     else
-        ymllist=($(find $master_home/vagbook/ -maxdepth 1 -name "*.yml"))
-        for i in "${ymllist[@]}"; do
-            tmp=${i%%.yml*}
-            echo - ${tmp##*/}
-        done
+        if [[ -f $master_home/vagbook/spec.md ]];then
+            cat $master_home/vagbook/spec.md
+            echo ""
+        else
+            ymllist=($(find $master_home/vagbook/ -maxdepth 1 -name "*.yml"))
+            for i in "${ymllist[@]}"; do
+                tmp=${i%%.yml*}
+                echo - ${tmp##*/}
+            done
+        fi
     fi
 
     # 私有目录处理
-    if [[ -d $master_home/vagbook/${VAGBOOK_MASTER} ]];then
-        ymllist=($(find $master_home/vagbook/${VAGBOOK_MASTER}/ -maxdepth 1 -name "*.yml"))
-        for i in "${ymllist[@]}"; do
-            tmp=${i%%.yml*}
-            echo - @${tmp##*/}
-        done
+    echo ""
+    echo "# Private commands"
+    echo ""
+    if [[ -d $master_home/vagbook/masters/${VAGBOOK_MASTER} ]];then
+        if [[ -f $master_home/vagbook/masters/${VAGBOOK_MASTER}/spec.md ]];then
+            cat $master_home/vagbook/masters/${VAGBOOK_MASTER}/spec.md
+            echo ""
+        else
+            ymllist=($(find $master_home/vagbook/masters/${VAGBOOK_MASTER}/ -maxdepth 1 -name "*.yml"))
+            for i in "${ymllist[@]}"; do
+                tmp=${i%%.yml*}
+                echo - @${tmp##*/}
+            done
+        fi
     fi
 
     exit
@@ -37,7 +53,7 @@ if [[ ! $2 ]];then
 fi
 
 if [[ ${2:0:1} == "@" ]];then
-    book=./vagbook/${VAGBOOK_MASTER}/${2:1}.yml
+    book=./vagbook/masters/${VAGBOOK_MASTER}/${2:1}.yml
 else
     book=./vagbook/${2}.yml
 fi
