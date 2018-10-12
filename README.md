@@ -1,4 +1,8 @@
+[flow]: vb-flow.png
+
 # VagBook CLI
+
+![flow]
 
 ## Before you begin
 
@@ -75,3 +79,7 @@ vbc <env> <command> --check
 ```bash
 vbc <env> <command>
 ```
+
+## How to make my vagbook
+
+Currently only Chinese documents, [click here](docs/zh-cn.md).
