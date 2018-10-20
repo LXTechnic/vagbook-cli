@@ -60,6 +60,7 @@ You should relogin shell to apply env vars.
 
 ```bash
 vb-up
+vb-up --self # with self
 ```
 
 ### List vagbook commands
