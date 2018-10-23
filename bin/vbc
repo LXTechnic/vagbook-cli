@@ -58,7 +58,7 @@ else
     book=./vagbook/${2}.yml
 fi
 
-hosts=./vagbook/hosts/${1}.ini
+hosts=./vagbook/hosts/${1}.yml
 
 # extra params
 
