@@ -25,7 +25,7 @@ if [[ $1 && $1 == '--mod' ]];then
         git -C /tmp/ansible fetch --all
         git -C /tmp/ansible reset --hard origin/master
     else
-        git -C /tmp clone git@github.com:ansible/ansible.git
+        git -C /tmp clone https://github.com/ansible/ansible.git
     fi
     sudo cp -rf /tmp/ansible/lib/ansible/modules/* /usr/lib/python2.7/dist-packages/ansible/modules/
 fi
