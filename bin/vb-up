@@ -1,24 +1,32 @@
 #!/bin/bash
 
 if [[ $1 && $1 == '--help' ]];then
-    echo "Update your vagbook: vb-up"
-    echo "Update your vagbook with VagBook-CLI: vb-up --self"
-    echo "Update Ansible lazy upgrade modules: vb-up --mod (ONLY WORK ON APT INSTALL AT UBUNTU 16.04 LTS)"
+    echo "# Update your vagbook"
+    echo "vb-up"
+    echo ""
+    echo "# Update your vagbook with VagBook-CLI"
+    echo "vb-up --self"
+    echo ""
+    echo "# Update Ansible lazy upgrade modules"
+    echo "vb-up --mod"
+    echo "> NEED SUDO"
+    echo "> ONLY WORK ON APT INSTALL AT UBUNTU 16.04 LTS"
+    echo ""
     exit
 fi
 
 if [[ $1 && $1 == '--mod' ]];then
-    if [ ! $(id -u) = 0 ];then
-        echo "!!! need be root, your id -u is: $(id -u)"
-        exit;
-    fi
+    # if [ ! $(id -u) = 0 ];then
+    #     echo "!!! need be root, your id -u is: $(id -u)"
+    #     exit;
+    # fi
     if [[ -d /tmp/ansible ]];then
         git -C /tmp/ansible fetch --all
         git -C /tmp/ansible reset --hard origin/master
     else
         git -C /tmp clone git@github.com:ansible/ansible.git
     fi
-    cp -rf /tmp/ansible/lib/ansible/modules/* /usr/lib/python2.7/dist-packages/ansible/modules/
+    sudo cp -rf /tmp/ansible/lib/ansible/modules/* /usr/lib/python2.7/dist-packages/ansible/modules/
 fi
 
 if [[ $1 && $1 == '--self' ]];then
