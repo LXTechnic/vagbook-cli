@@ -9,6 +9,7 @@ if [[ $1 && $1 == '--help' ]];then
     echo ""
     echo "# Update Ansible lazy upgrade modules"
     echo "vb-up --mod"
+    echo ""
     echo "> NEED SUDO"
     echo "> ONLY WORK ON APT INSTALL AT UBUNTU 16.04 LTS"
     echo ""
