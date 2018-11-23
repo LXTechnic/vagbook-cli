@@ -23,7 +23,7 @@ if [[ $1 && $1 == '--mod' ]];then
     # fi
     if [[ -d /tmp/ansible ]];then
         git -C /tmp/ansible fetch --all
-        git -C /tmp/ansible reset --hard origin/master
+        git -C /tmp/ansible reset --hard
     else
         git -C /tmp clone https://github.com/ansible/ansible.git
     fi
